@@ -8,16 +8,22 @@ import UserProtected from './UserProtected'
 
 const AppRouter = () => {
   return (
-    // version 6 related routing
+    // before version 6 related routing
     <BrowserRouter>
         <Routes >
             <Route path="/" element={<MainLayout />}>
                 <Route index element={<Home />} />
                 <Route element={ <UserProtected />}>
                     <Route path='user' element={<User />}/>
-                </Route>      
+                </Route>
+                {/* 
+                    index - path location of the outer       
+                    outlet- inside elements of the outer
+                */}
             </Route>
-            <Route path='/login'element={<Login/>}/>
+            <Route path='/login'>
+               <Route index element={<Login/>}/>
+            </Route>
         </Routes>
     </BrowserRouter>
   )
