@@ -1,25 +1,28 @@
 import React from 'react';
-import menu from '../../img/cart.svg';
-import cart from '../../img/menu.svg';
-import search from '../../img/search.svg';
+import MenuIcon from '@mui/icons-material/Menu';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import SearchIcon from '@mui/icons-material/Search';
+import { IconButton } from '@mui/material';
 
 const Header = () => {
   return (
-    <header className="fix top-0 left-0 z-[100] w-full p-5 bg-my flex items-center justify-between drop-shadow-header-shadow">
+    <header className="fix top-0 left-0 z-[100] w-full py-5 px-2 bg-my flex items-center justify-between drop-shadow-header-shadow">
         {/* left side */}
         <div className='flex items-center'>
-            <img src={menu} alt="menu" className=' w-6 h-6 object-contain cursor-pointer'/>
+        <IconButton sx={{color:'black'}}>
+            <MenuIcon sx={{color: "white"}} />
+        </IconButton>
             <h1 className='ml-2 text-sm font-semibold'> 
                 Smart <span className='text-white'>Plaza</span>
             </h1>
             <div className='overflow-hidden ml-2 flex items-center rounded-full  bg-white'>
                 <input type='text' placeholder='search' className='ml-1 outline-none p-2 font-semibold text-sm w-[200px] bg-inherit'/>
-                <img src={search} alt="search" className='ml-2 w-6 h-6 object-contain cursor-pointer'/>
+                <IconButton sx={{color:'black'}}><SearchIcon sx={{color: "grey"}}/></IconButton>
             </div>
         </div> 
 
         {/* right side */}
-        <img src={cart} alt="cart" className=' w-6 h-6 object-contain cursor-pointer'/>
+        <IconButton sx={{color:'black'}}><AddShoppingCartIcon sx={{color:"white"}}/></IconButton>
     </header>
   )
 }
