@@ -16,7 +16,7 @@ const Header = () => {
                 Smart <span className='text-white'>Plaza</span>
             </h1>
             <div className='overflow-hidden ml-2 flex items-center rounded-full  bg-white'>
-                <input type='text' placeholder='search' className='ml-1 outline-none p-2 font-semibold text-sm w-[200px] bg-inherit'/>
+                <input type='text' placeholder='search' className= ' hidden md:inline-block  ml-1 outline-none p-2 font-semibold text-sm w-[200px] bg-inherit'/>
                 <IconButton sx={{color:'black'}}><SearchIcon sx={{color: "grey"}}/></IconButton>
             </div>
         </div> 
