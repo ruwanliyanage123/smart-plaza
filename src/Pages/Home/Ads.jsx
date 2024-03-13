@@ -7,16 +7,7 @@ import 'swiper/css/navigation';
 
 const imgArray = [
     {
-        url : 'https://c4.wallpaperflare.com/wallpaper/297/22/531/lake-blue-moonlight-moon-wallpaper-preview.jpg',
-    },
-    {
-        url : 'https://c4.wallpaperflare.com/wallpaper/297/22/531/lake-blue-moonlight-moon-wallpaper-preview.jpg',
-    },
-    {
-        url : 'https://c4.wallpaperflare.com/wallpaper/297/22/531/lake-blue-moonlight-moon-wallpaper-preview.jpg',
-    },
-    {
-        url : 'https://c4.wallpaperflare.com/wallpaper/297/22/531/lake-blue-moonlight-moon-wallpaper-preview.jpg',
+        url:'https://static.toiimg.com/thumb/msid-104960488,width-400,resizemode-4/104960488.jpg', 
     }
 ]
 
@@ -41,10 +32,10 @@ const Ads = () => {
                 <AddUnit imgUrl={imgArray[0].url} alt={1} />
             </SwiperSlide>
             <SwiperSlide>
-                <AddUnit imgUrl={imgArray[1].url} alt={1} />
+                <AddUnit imgUrl={imgArray[0].url} alt={1} />
             </SwiperSlide>
             <SwiperSlide>
-                <AddUnit imgUrl={imgArray[2].url} alt={1} />
+                <AddUnit imgUrl={imgArray[0].url} alt={1} />
             </SwiperSlide>
         </Swiper>
     </div>
