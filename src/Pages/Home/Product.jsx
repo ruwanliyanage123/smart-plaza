@@ -4,7 +4,7 @@ import { Grid, Pagination, Mousewheel } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/grid';
 import 'swiper/css/pagination';
-import { IconButton } from '@mui/material';
+import { IconButton, Rating } from '@mui/material';
 import './style.css';
 
 const productArray = [
@@ -13,13 +13,14 @@ const productArray = [
         price:100, 
         producTitle:'product title', 
     },
-
 ]
 
 const Product = ({title, rowsCount, slidesPerView}) => {
   return (
-    <section className='w-full mt'>
-        <h1 className=' text-lg font-bold mb-5'>{title}</h1>
+    <section style={{
+      boxShadow:'rgba(0, 0, 0, 0.24) 0px 3px 8px'
+    }}>
+        <h1 className=' text-lg font-bold ml-2 mt-2 mb-5'>{title}</h1>
         <Swiper
             slidesPerView={Number(slidesPerView)}
             grid={{
@@ -68,6 +69,7 @@ const ProductUnit = ({imageUrl, price, producTitle, id})=>(
         <div className=' w-full'>
             <img src={imageUrl} alt={`product_unit_${id}`}/>
             <h3 className='text-sm font-semibold text-stone'>{producTitle}</h3>
+            <Rating name={imageUrl} value={3} precision={0.5} size='small' readOnly/>
             <h3 className='text-sm font-semibold text-stone'>Rs.{price}/-</h3>
         </div>
     </IconButton>
