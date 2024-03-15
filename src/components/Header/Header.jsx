@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import SearchIcon from '@mui/icons-material/Search';
 import { IconButton } from '@mui/material';
 
 const Header = () => {
+  const [isSearch, setIsSearch] = useState(false);  
   return (
     <header className="fix top-0 left-0 z-[100] w-full py-5 px-2 bg-my flex items-center justify-between drop-shadow-header-shadow">
         {/* left side */}
@@ -16,8 +17,10 @@ const Header = () => {
                 Smart <span className='text-white'>Plaza</span>
             </h1>
             <div className='overflow-hidden ml-2 flex items-center rounded-full  bg-white'>
-                <input type='text' placeholder='search' className= ' hidden md:inline-block  ml-1 outline-none p-2 font-semibold text-sm w-[200px] bg-inherit'/>
-                <IconButton sx={{color:'black'}}><SearchIcon sx={{color: "grey"}}/></IconButton>
+                <input style={{display: (isSearch)  ? 'inline-block':'none'}} type='text' placeholder='search' className= ' hidden md:inline-block  ml-1 outline-none p-2 font-semibold text-sm w-[200px] bg-inherit'/>
+                <IconButton onClick={()=> setIsSearch(true)} sx={{color:'black'}}>
+                    <SearchIcon sx={{color: "grey"}}/>
+                </IconButton>
             </div>
         </div> 
 
