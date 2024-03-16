@@ -30,7 +30,7 @@ const categoryArr = [
     {
         url:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnaeRIzP4QwBkSDK3fsuxjmlRn0EOu5WFLNPCOwgjcGw&s',
         title:'Category Title 6',
-        categoryId: 'category',
+        categoryId: 'category6',
     }
 ]
 
@@ -43,9 +43,14 @@ const Category = () => {
            className=' w-full p-2'>
           <h1 className=' text-lg font-bold ml-2 mt-2 mb-5'>Main Categories</h1>
           <div className='grid grid-cols-3 grid-rows-[auto] gap-5'>
-
-            {categoryArr.map(({url, title, categoryId}, index)=><CategoryItems key={index} 
-              url={url} title={title} categoryId={categoryId}/>)}
+            {categoryArr.map(({url, title, categoryId}, index)=> (
+              <CategoryItems 
+                key={index} 
+                url={url} 
+                title={title} 
+                categoryId={categoryId}
+                />
+                ))}
           </div>
         </div>
     </div>
