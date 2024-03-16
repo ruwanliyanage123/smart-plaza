@@ -25,7 +25,12 @@ const Header = () => {
         </div> 
 
         {/* right side */}
-        <IconButton sx={{color:'black'}}><AddShoppingCartIcon sx={{color:"white"}}/></IconButton>
+        <IconButton sx={{color:'black'}}>
+            <div className='relative p-1'>
+                <AddShoppingCartIcon sx={{color:"white"}}/>
+                <div className=' absolute top-[2px] right-0 text-[10px] font-semibold text-white bg-black flex w-4 h-4 rounded-full'>2</div>
+            </div>
+        </IconButton>
     </header>
   )
 }
