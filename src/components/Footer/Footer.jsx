@@ -3,6 +3,7 @@ import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import AppsOutlinedIcon from '@mui/icons-material/AppsOutlined';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import { IconButton } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const [whoIsClick, setWhoIsClick] = useState({
@@ -45,16 +46,18 @@ const FooterIcon = ({Icon, title, clilckFun}) =>{
   }
   
   return(
-  <IconButton sx={{color:'white', borderRadius:"5px", paddingTop:'0', padding:"4px"}}>
-    <div style={{
-      color: clilckFun.whoIsClick[title] &&'#c82196',
-      backgroundColor: clilckFun.whoIsClick[title] &&'black',
-    }} 
-    className=' text-gray-700 hover:text-[#c82196] transition-all'
-    onClick={clickHandle}
-    >
-      <Icon />
-      <p className=' text-xs font-bold'>{title}</p>
-    </div>
-  </IconButton>
+    <Link to={title === "Home"?'/':`/${String(title).toLowerCase()}`}>
+      <IconButton sx={{color:'white', borderRadius:"5px", paddingTop:'0', padding:"4px"}}>
+        <div style={{
+          color: clilckFun.whoIsClick[title] &&'#c82196',
+          backgroundColor: clilckFun.whoIsClick[title] &&'black',
+        }} 
+        className=' text-gray-700 hover:text-[#c82196] transition-all'
+        onClick={clickHandle}
+        >
+          <Icon />
+          <p className=' text-xs font-bold'>{title}</p>
+        </div>
+      </IconButton>
+    </Link>
 )}
