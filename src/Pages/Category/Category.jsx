@@ -1,17 +1,52 @@
+import { IconButton } from '@mui/material';
 import React from 'react'
+import { Link } from 'react-router-dom';
+
+const categoryArr = [
+    {
+        url:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnaeRIzP4QwBkSDK3fsuxjmlRn0EOu5WFLNPCOwgjcGw&s',
+        title:'Category Title 1',
+        categoryId: 'category1'    },
+    {
+        url:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnaeRIzP4QwBkSDK3fsuxjmlRn0EOu5WFLNPCOwgjcGw&s',
+        title:'Category Title 2',
+        categoryId: 'category2',
+    },
+    {
+        url:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnaeRIzP4QwBkSDK3fsuxjmlRn0EOu5WFLNPCOwgjcGw&s',
+        title:'Category Title 3',
+        categoryId: 'category3',
+    },
+    {
+        url:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnaeRIzP4QwBkSDK3fsuxjmlRn0EOu5WFLNPCOwgjcGw&s',
+        title:'Category Title 4',
+        categoryId: 'category4',
+    },
+    {
+        url:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnaeRIzP4QwBkSDK3fsuxjmlRn0EOu5WFLNPCOwgjcGw&s',
+        title:'Category Title 5',
+        categoryId: 'category5',
+    },
+    {
+        url:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnaeRIzP4QwBkSDK3fsuxjmlRn0EOu5WFLNPCOwgjcGw&s',
+        title:'Category Title 6',
+        categoryId: 'category',
+    }
+]
 
 const Category = () => {
   return (
     <div className=' px-5p py-1 pt-[100px] w-full h-screen overflow-y-scroll' >
         <div style={{
             boxShadow: "rgba(0,0,0,0.24) 0px 3px 8px"
-        }} className=' w-full p-2 grid grid-cols-3 grid-rows-[auto] gap-5'>
-           <CategoryItems />
-           <CategoryItems />
-           <CategoryItems />
-           <CategoryItems />
-           <CategoryItems />
-           <CategoryItems />
+           }} 
+           className=' w-full p-2'>
+          <h1 className=' text-lg font-bold ml-2 mt-2 mb-5'>Main Categories</h1>
+          <div className='grid grid-cols-3 grid-rows-[auto] gap-5'>
+
+            {categoryArr.map(({url, title, categoryId}, index)=><CategoryItems key={index} 
+              url={url} title={title} categoryId={categoryId}/>)}
+          </div>
         </div>
     </div>
   )
@@ -19,7 +54,16 @@ const Category = () => {
 
 export default Category;
 
-const CategoryItems = () =><div className=' w-full rounded-md border-2 border-pink-600 flex flex-col items-center'>
-    <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnaeRIzP4QwBkSDK3fsuxjmlRn0EOu5WFLNPCOwgjcGw&s' alt='category item'/>
-    <h2>Category Name</h2>
-</div>
+const CategoryItems = ({url, title, categoryId}) =>(
+    <Link to={`/category/${categoryId}`}>
+    <IconButton sx={{color:'red', padding: '1px', borderRadius:'6px'}}>
+        <div style={{
+            boxShadow: "rgba(0,0,0,0.24) 0px 3px 8px"
+        }}
+         className=' m-1 w-full py-6 px-3 mt-3 rounded-md border-2 flex flex-col items-center'>
+            <img src={url} alt={title} className='rounded-full w-[50px] h-[50px]'/>
+            <h2 className='text-xs text-black font-bold'>{title}</h2>
+        </div>
+    </IconButton>
+    </Link>
+)

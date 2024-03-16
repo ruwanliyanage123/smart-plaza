@@ -6,6 +6,7 @@ import User from '../Pages/User/User'
 import Login from '../Pages/Login/Login'
 import UserProtected from './UserProtected'
 import Category from '../Pages/Category/Category'
+import CategoryItems from '../Pages/CategoryItems/CategoryItems'
 
 //after versoin 6
 const router = createBrowserRouter([
@@ -19,7 +20,16 @@ const router = createBrowserRouter([
             },
             {
                 path: 'category',
-                element: <Category/>
+                children:[
+                    {
+                        index: true,
+                        element: <Category/>,
+                    },
+                    {
+                      path: ':categoryId',
+                      element:<CategoryItems />,
+                    }
+                ]
             },
             {
                element:<UserProtected />,
