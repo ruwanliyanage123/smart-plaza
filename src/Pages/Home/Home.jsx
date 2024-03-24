@@ -5,7 +5,7 @@ import Loading from '../../components/Loading/Loading';
 import PaymentModal from '../../Modals/PaymentModal';
 import { IconButton } from '@mui/material';
 import db from '../../firebase/firebase';
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, getDocs, collection } from 'firebase/firestore';
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
@@ -27,16 +27,9 @@ const Home = () => {
   return (
     <div className=' pl-6 pr-6 px-5 py-[100px] w-full h-screen overflow-y-scroll' >
        <Ads />
-
        <IconButton sx={{color:'red'}}>
-          <button className=' color' onClick={addData}>click</button>
+          <button className=' color' onClick={addData}>Add</button>
        </IconButton>
-      
-       {/* <PaymentModal ref={paymentModalRef} />
-       <button 
-         onClick={() => {
-          paymentModalRef.current.handleOpen();
-         }}>Click</button> */}
        <Product title="trending products" rowsCount={1} slidesPerView={2}/>
        <Product title="Eletric Items" rowsCount={1} slidesPerView={2}/>
        <Product title="Computer Items" rowsCount={1} slidesPerView={2}/>
