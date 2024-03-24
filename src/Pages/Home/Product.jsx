@@ -68,7 +68,10 @@ const ProductUnit = ({imageUrl, price, producTitle, id})=>(
      }}>
         <div className=' w-full'>
             <img src={imageUrl} alt={`product_unit_${id}`}/>
-            <h3 className='text-sm font-semibold text-stone'>{producTitle}</h3>
+            <h3 className='text-sm font-semibold text-stone'>
+               {String(producTitle).substring(0,5)}
+               {String(producTitle).length > 5 ? "..." : null}
+            </h3>
             <Rating name={imageUrl} value={3} precision={0.5} size='small' readOnly/>
             <h3 className='text-sm font-semibold text-stone'>Rs.{price}/-</h3>
         </div>

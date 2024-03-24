@@ -4,6 +4,7 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import SearchIcon from '@mui/icons-material/Search';
 import { IconButton } from '@mui/material';
 
+
 const Header = () => {
   const [isSearch, setIsSearch] = useState(false);  
   return (
