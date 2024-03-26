@@ -5,7 +5,9 @@ import Loading from '../../components/Loading/Loading';
 import PaymentModal from '../../Modals/PaymentModal';
 import { IconButton } from '@mui/material';
 import db from '../../firebase/firebase';
-import { addDoc, getDocs, collection } from 'firebase/firestore';
+import { addDoc, collection } from 'firebase/firestore';
+import getDataFromCollection from '../../Utils/datafetch/getDataFromCollection';
+
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
@@ -28,7 +30,7 @@ const Home = () => {
     <div className=' pl-6 pr-6 px-5 py-[100px] w-full h-screen overflow-y-scroll' >
        <Ads />
        <IconButton sx={{color:'red'}}>
-          <button className=' color' onClick={addData}>Add</button>
+          <button className=' color' onClick={() => getDataFromCollection("category")}>Add</button>
        </IconButton>
        <Product title="trending products" rowsCount={1} slidesPerView={2}/>
        <Product title="Eletric Items" rowsCount={1} slidesPerView={2}/>
