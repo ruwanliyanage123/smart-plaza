@@ -1,16 +1,18 @@
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import db from "../../firebase/firebase";
 
-const getDataFromCollection = (collect) => {
-  getDocs(collection(db, collect))
+const getDataFromCollection = async(collect, callback) => {
+  const dataArr = [];
+  await getDocs(collection(db, collect))
     .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} =>`, doc.data());
+        dataArr.push(doc.data());
       });
     })
     .catch((error) => {
       console.error("Error fetching documents: ", error);
     });
+    callback(dataArr);
 };
 
 const addDataForDatabaseCollection = (collect, document) => {

@@ -1,40 +1,43 @@
 import { IconButton } from '@mui/material';
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
+import { getDataFromCollection } from '../../Utils/datafetch/getDataFromCollection';
 
-const categoryArr = [
-    {
-        url:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnaeRIzP4QwBkSDK3fsuxjmlRn0EOu5WFLNPCOwgjcGw&s',
-        title:'Category Title 1',
-        categoryId: 'category1'    },
-    {
-        url:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnaeRIzP4QwBkSDK3fsuxjmlRn0EOu5WFLNPCOwgjcGw&s',
-        title:'Category Title 2',
-        categoryId: 'category2',
-    },
-    {
-        url:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnaeRIzP4QwBkSDK3fsuxjmlRn0EOu5WFLNPCOwgjcGw&s',
-        title:'Category Title 3',
-        categoryId: 'category3',
-    },
-    {
-        url:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnaeRIzP4QwBkSDK3fsuxjmlRn0EOu5WFLNPCOwgjcGw&s',
-        title:'Category Title 4',
-        categoryId: 'category4',
-    },
-    {
-        url:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnaeRIzP4QwBkSDK3fsuxjmlRn0EOu5WFLNPCOwgjcGw&s',
-        title:'Category Title 5',
-        categoryId: 'category5',
-    },
-    {
-        url:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnaeRIzP4QwBkSDK3fsuxjmlRn0EOu5WFLNPCOwgjcGw&s',
-        title:'Category Title 6',
-        categoryId: 'category6',
-    }
-]
+// const categoryArr = [
+//     {
+//         url:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnaeRIzP4QwBkSDK3fsuxjmlRn0EOu5WFLNPCOwgjcGw&s',
+//         title:'Category Title 1',
+//         categoryId: 'category1'    },
+//     {
+//         url:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnaeRIzP4QwBkSDK3fsuxjmlRn0EOu5WFLNPCOwgjcGw&s',
+//         title:'Category Title 2',
+//         categoryId: 'category2',
+//     },
+//     {
+//         url:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnaeRIzP4QwBkSDK3fsuxjmlRn0EOu5WFLNPCOwgjcGw&s',
+//         title:'Category Title 3',
+//         categoryId: 'category3',
+//     },
+//     {
+//         url:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnaeRIzP4QwBkSDK3fsuxjmlRn0EOu5WFLNPCOwgjcGw&s',
+//         title:'Category Title 4',
+//         categoryId: 'category4',
+//     },
+//     {
+//         url:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnaeRIzP4QwBkSDK3fsuxjmlRn0EOu5WFLNPCOwgjcGw&s',
+//         title:'Category Title 5',
+//         categoryId: 'category5',
+//     },
+//     {
+//         url:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnaeRIzP4QwBkSDK3fsuxjmlRn0EOu5WFLNPCOwgjcGw&s',
+//         title:'Category Title 6',
+//         categoryId: 'category6',
+//     }
+// ]
 
 const Category = () => {
+  const [cat, setCat] = useState([]);
+
   return (
     <div className=' px-5p py-1 pt-[100px] w-full h-screen overflow-y-scroll' >
         <div style={{
@@ -42,15 +45,13 @@ const Category = () => {
            }} 
            className=' w-full p-2'>
           <h1 className=' text-lg font-bold ml-2 mt-2 mb-5'>Main Categories</h1>
+          <button onClick={() => getDataFromCollection("item-categories", setCat)}>see more...</button>
           <div className='grid grid-cols-3 grid-rows-[auto] gap-5'>
-            {categoryArr.map(({url, title, categoryId}, index)=> (
-              <CategoryUnitItems 
-                key={index} 
-                url={url} 
-                title={title} 
-                categoryId={categoryId}
-                />
-                ))}
+            {
+             cat.map(({url, title, categoryId}, index)=> (
+              <CategoryUnitItems key={index} url={url} title={title} categoryId={categoryId}/>
+              ))
+            }
           </div>
         </div>
     </div>
