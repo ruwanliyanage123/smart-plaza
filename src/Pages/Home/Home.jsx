@@ -18,9 +18,6 @@ const Home = () => {
   return (
     <div className=' pl-6 pr-6 px-5 py-[100px] w-full h-screen overflow-y-scroll' >
        <Ads />
-       <IconButton>
-          <button onClick={() => getDataFromCollection("item-categories")}>Adding</button>
-       </IconButton>
        <Product title="trending products" rowsCount={1} slidesPerView={2}/>
        <Product title="Eletric Items" rowsCount={1} slidesPerView={2}/>
        <Product title="Computer Items" rowsCount={1} slidesPerView={2}/>

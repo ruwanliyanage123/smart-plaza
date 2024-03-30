@@ -1,18 +1,27 @@
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import db from "../../firebase/firebase";
 
+const dbData = {}
+
 const getDataFromCollection = async(collect, callback) => {
-  const dataArr = [];
-  await getDocs(collection(db, collect))
-    .then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        dataArr.push(doc.data());
+  if(dbData[collect] && dbData[collect].length>0){
+     callback(dbData[collect]);
+     console.log('laaa laa');
+  }else{
+    const dataArr = [];
+    await getDocs(collection(db, collect))
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          dataArr.push(doc.data());
+        });
+      })
+      .catch((error) => {
+        console.error("Error fetching documents: ", error);
       });
-    })
-    .catch((error) => {
-      console.error("Error fetching documents: ", error);
-    });
-    callback(dataArr);
+      console.log('heeeeey heeeey');
+      dbData[collect] = dataArr;
+      callback(dataArr);
+  }
 };
 
 const addDataForDatabaseCollection = (collect, document) => {
