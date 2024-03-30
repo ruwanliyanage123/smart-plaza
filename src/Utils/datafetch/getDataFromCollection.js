@@ -13,7 +13,6 @@ const getDataFromCollection = (collect) => {
     });
 };
 
-
 const addDataForDatabaseCollection = (collect, document) => {
   console.log(`document : ${document.title}`);
   addDoc(collection(db, collect), document)

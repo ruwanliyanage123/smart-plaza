@@ -15,7 +15,6 @@ const categoryObject =
 const Home = () => {
   const [loading, setLoading] = useState(false);
   if(loading)return <Loading />
-
   return (
     <div className=' pl-6 pr-6 px-5 py-[100px] w-full h-screen overflow-y-scroll' >
        <Ads />
