@@ -6,7 +6,6 @@ const dbData = {}
 const getDataFromCollection = async(collect, callback) => {
   if(dbData[collect] && dbData[collect].length>0){
      callback(dbData[collect]);
-     console.log('laaa laa');
   }else{
     const dataArr = [];
     await getDocs(collection(db, collect))
@@ -18,7 +17,6 @@ const getDataFromCollection = async(collect, callback) => {
       .catch((error) => {
         console.error("Error fetching documents: ", error);
       });
-      console.log('heeeeey heeeey');
       dbData[collect] = dataArr;
       callback(dataArr);
   }

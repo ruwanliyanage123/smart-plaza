@@ -2,8 +2,6 @@ import { useState } from 'react'
 import Ads from './Ads'
 import Product from './Product'
 import Loading from '../../components/Loading/Loading';
-import { addDataForDatabaseCollection, getDataFromCollection } from '../../Utils/datafetch/getDataFromCollection';
-import { IconButton } from '@mui/material';
 
 const categoryObject = 
   {
