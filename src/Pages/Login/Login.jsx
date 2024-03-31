@@ -27,15 +27,19 @@ const Login = () => {
   }
 
   useEffect(()=>{
-    const fun = () =>{
-      const user = auth.currentUser;
-      if(user){
-         console.log(user);
-      }else{
-        console.log('no user');
-      }
+    const userCheckfun = () =>{
+       onAuthStateChanged(auth, (user)=>{
+         console.log("user logging", user);
+         if(user){
+             const uid = user.uid;
+             console.log(user);
+         }else{
+             console.log(`user error`); 
+         }
+       });
     };
-    setTimeout(()=>{fun();}, 1000);
+    userCheckfun();
+    return () => userCheckfun(); 
   },[]);
 
   const login = () =>{
@@ -65,7 +69,7 @@ const Login = () => {
     <div>
       <input type='email' ref={usernameRef} placeholder='email' />
       <input type='password' ref={passwordRef} placeholder='password' />
-      <button onClick={login3}>Login</button>
+      <button onClick={login}>Login</button>
       <button onClick={()=>{
           signOut(auth).then(()=>{
             alert('user sign out')
