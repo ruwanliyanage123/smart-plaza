@@ -8,6 +8,9 @@ import UserProtected from './UserProtected'
 import Category from '../Pages/Category/Category'
 import CategoryItems from '../Pages/CategoryItems/CategoryItems'
 import Itempage from '../Pages/ItemPage/Itempage'
+import Admin from '../Pages/Admin/Admin'
+import AdminProtected from './AdminProtected'
+import NoUrl from '../Pages/404/NoUrl'
 
 //after versoin 6
 const router = createBrowserRouter([
@@ -32,7 +35,8 @@ const router = createBrowserRouter([
                         {
                             index:true,
                             element:<CategoryItems />,
-                        },{
+                        },
+                        {
                             path:':itemId',
                             element: <Itempage />
                         }
@@ -46,14 +50,27 @@ const router = createBrowserRouter([
                 {
                     path: 'user',
                     element: <User />
-                }
-               ]
-            }
-        ]
+                },
+               ],
+            },
+        ],
     },
     {
         path: '/login',
         element: <Login/>
+    },
+    {
+        path: '/404',
+        element: <NoUrl />
+    },
+    {
+        element: <AdminProtected />, 
+        children:[
+            {
+                path: '/admin',
+                element: <Admin />,
+            }
+        ]
     }
 ]);
 

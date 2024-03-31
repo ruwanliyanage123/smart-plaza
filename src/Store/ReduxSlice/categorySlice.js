@@ -30,5 +30,8 @@ const categorySlice = createSlice({
     }
 })
 
-export const categorySelector = createSelector([(store)=>store.category], (category)=> category);
+export const categorySelector = createSelector(
+    [(store)=>store.category],
+    (category)=> category
+);
 export default categorySlice.reducer;
