@@ -11,22 +11,6 @@ const Login = () => {
   const usernameRef = useRef();
   const passwordRef = useRef();
   const navigate = useNavigate();
-  useEffect(()=>{
-    // const authCheck = ()=>{
-    //   onAuthStateChanged(auth, (user)=>{
-    //     if(user){
-    //       const uid = user.uid;
-    //       console.log(uid);
-    //     }else{
-  
-    //     }
-    //   });
-    // }
-    // authCheck();
-    // return() =>{
-    //   authCheck()
-    // }
-  },[]);
 
   const loginSubmit = ()=>{
     const q = query(collection(db, "users"), where("username", "==", 'ruwan'));
