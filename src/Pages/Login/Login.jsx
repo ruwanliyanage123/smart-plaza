@@ -4,7 +4,8 @@ import { useDispatch } from 'react-redux'
 import db, { auth } from "../../firebase/firebase";
 import { addUser } from "../../Store/ReduxSlice/userSlice";
 import { useNavigate } from "react-router-dom";
-import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
+import { onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { AltRoute } from "@mui/icons-material";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -25,6 +26,18 @@ const Login = () => {
     });
   }
 
+  useEffect(()=>{
+    const fun = () =>{
+      const user = auth.currentUser;
+      if(user){
+         console.log(user);
+      }else{
+        console.log('no user');
+      }
+    };
+    setTimeout(()=>{fun();}, 1000);
+  },[]);
+
   const login = () =>{
     const email = usernameRef.current.value;
     const password = passwordRef.current.value;
@@ -43,7 +56,7 @@ const Login = () => {
     const user = auth.currentUser;
     if(user){
        console.log(user);
-      }else{
+    }else{
       console.log('no user');
     }
   }
@@ -54,7 +67,11 @@ const Login = () => {
       <input type='password' ref={passwordRef} placeholder='password' />
       <button onClick={login3}>Login</button>
       <button onClick={()=>{
-
+          signOut(auth).then(()=>{
+            alert('user sign out')
+          }).catch((error)=>{
+            alert(error.message);
+          });
       }}>Logout</button>
     </div>
   )
