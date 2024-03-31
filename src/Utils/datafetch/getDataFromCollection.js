@@ -1,4 +1,4 @@
-import { addDoc, collection, getDocs } from "firebase/firestore";
+import { addDoc, setDoc, doc, collection, getDocs } from "firebase/firestore";
 import db from "../../firebase/firebase";
 
 const dbData = {}
@@ -23,7 +23,6 @@ const getDataFromCollection = async(collect, callback) => {
 };
 
 const addDataForDatabaseCollection = (collect, document) => {
-  console.log(`document : ${document.title}`);
   addDoc(collection(db, collect), document)
     .then((ref) => {
       console.log("Document written with ID: ", ref.id);
@@ -33,4 +32,19 @@ const addDataForDatabaseCollection = (collect, document) => {
     });
 };
 
-export { getDataFromCollection, addDataForDatabaseCollection };
+const addDataForDatabaseCollectionDocumet = () => {
+  setDoc(doc(db, "category/category3/category3", 
+  "category3_item1"), {
+    title: "category 3 item 1",
+    img:"https://1.img-dpreview.com/files/p/TS600x600~sample_galleries/7692340468/4258468533.jpg",
+    rating: 2.3
+  })
+    .then((ref) => {
+      console.log("Document written with ID: ", ref.id);
+    })
+    .catch((error) => {
+      console.error("Error Adding Document: ", error);
+    });
+};
+
+export { getDataFromCollection, addDataForDatabaseCollection, addDataForDatabaseCollectionDocumet };

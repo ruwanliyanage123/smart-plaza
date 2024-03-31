@@ -13,7 +13,7 @@ const Category = () => {
 
   if(cat.length == 0){
     return <Loading />
- }
+  }
 
   return (
     <div className=' px-5p py-1 pt-[100px] w-full h-screen overflow-y-scroll' >
