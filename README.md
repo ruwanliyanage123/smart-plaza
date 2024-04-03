@@ -73,3 +73,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 Note: 
 
 npm install -D tailwindcss // use -D for dev dependencies
+npm install -D serve
+npx serve -s build -l 3005
+
+when routing by the react-router-dom, the components are won't be re-render
+use effect will be re render twise when a componnent re render
+in use effects, at the first re-rendering time, the return statement will not be execute. At the second  time also, return will get first and so on. those will happens in the developer mode. but not in the production  mode.
