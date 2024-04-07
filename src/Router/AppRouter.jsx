@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import MainLayout from '../Layout/MainLayout'
 import Home from '../Pages/Home/Home'
@@ -12,7 +12,6 @@ import Admin from '../Pages/Admin/Admin'
 import AdminProtected from './AdminProtected'
 import NoUrl from '../Pages/404/NoUrl'
 
-//after versoin 6
 const router = createBrowserRouter([
     {
         path: '/',

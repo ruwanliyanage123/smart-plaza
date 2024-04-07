@@ -5,7 +5,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { IconButton } from '@mui/material';
 
 
-const Header = () => {
+const Header1 = () => {
   const [isSearch, setIsSearch] = useState(false);  
   return (
     <header className="fix top-0 left-0 z-[100] w-full py-5 px-2 bg-my flex items-center justify-between drop-shadow-header-shadow">
@@ -36,4 +36,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default Header1

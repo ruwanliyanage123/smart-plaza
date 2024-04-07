@@ -5,7 +5,7 @@ import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined
 import { IconButton } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-const Footer = () => {
+const Footer1 = () => {
   const [whoIsClick, setWhoIsClick] = useState({
     Home: true,
     Category: false,
@@ -18,7 +18,7 @@ const Footer = () => {
   </footer>;
 };
 
-export default Footer
+export default Footer1;
  
 const FooterIcon = ({Icon, title, clilckFun}) =>{
   const clickHandle = (home, category, profile) =>{

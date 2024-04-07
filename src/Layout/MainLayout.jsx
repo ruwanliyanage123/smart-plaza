@@ -1,14 +1,14 @@
 import React, { useRef } from 'react'
 import { Outlet } from 'react-router-dom'
-import Header from '../components/Header/Header'
-import Footer from '../components/Footer/Footer'
+import Header1 from '../components/Header/Header1'
+import Footer1 from '../components/Footer/Footer1'
 
 const MainLayout = () => {
   return (
     <div className=' overflow-hidden w-screen h-screen'>
-        <Header/>
+        <Header1/>
         <Outlet/>
-        <Footer/>
+        <Footer1/>
     </div>
   )
 }
