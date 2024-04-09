@@ -8,10 +8,10 @@ const Header = () => {
   return (
     <div className='header'>
         <div className='menu'>
-            <Link to="/">Men</Link>
             <Link to="/">Woman</Link>
             <Link to="/">Kids</Link>
             <Link to="/">Baby</Link>
+            <Link to="/">Men</Link>
         </div>
         <div className='links'>
             <Link to="/">Shop</Link>
