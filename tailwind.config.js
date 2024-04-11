@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "my": "grey",
+        "my": "green",
       },
       dropShadow: {
         "header-shadow": "rgba(0, 0, 0, 0.35) 0px 5px 15px",
