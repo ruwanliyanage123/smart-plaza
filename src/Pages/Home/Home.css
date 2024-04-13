@@ -1,0 +1,13 @@
+.home{
+    background-color: rgb(141, 47, 47);
+    height: 100%;
+    width: 100%;
+}
+
+.advertisement{
+    height: 50%;
+    width: 100%;
+    position: relative;
+    top: 10%;
+    background-color: rgb(48, 42, 91);
+} 
