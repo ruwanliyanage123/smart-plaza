@@ -15,10 +15,12 @@ const Home = () => {
       <div className='advertisement'>
         <Ads />
       </div>
-      {/* <button onClick={() => addDataForDatabaseCollectionDocumet()}>Adding</button> */}
-      {/* <Product title="trending products" rowsCount={1} slidesPerView={2}/>
+      <button onClick={() => addDataForDatabaseCollectionDocumet()}>Adding</button>
+      <Product title="trending products" rowsCount={1} slidesPerView={2}/>
       <Product title="Eletric Items" rowsCount={1} slidesPerView={2}/>
-      <Product title="Computer Items" rowsCount={1} slidesPerView={2}/> */}
+      <Product title="Computer Items" rowsCount={1} slidesPerView={2}/>
+      <Product title="Computer Items" rowsCount={1} slidesPerView={2}/>
+      <Product title="Computer Items" rowsCount={1} slidesPerView={2}/>
       <Footer />
     </div>
   );
