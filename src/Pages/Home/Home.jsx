@@ -20,6 +20,7 @@ const Home = () => {
       <Product title="Eletric Items" rowsCount={1} slidesPerView={2}/>
       <Product title="Computer Items" rowsCount={1} slidesPerView={2}/>
       <Product title="Computer Items" rowsCount={1} slidesPerView={2}/>
+      <Product title="Computer Items" rowsCount={1} slidesPerView={2}/>
       <Footer />
     </div>
   );
