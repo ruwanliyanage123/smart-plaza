@@ -69,7 +69,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-
 Note: 
 
 npm install -D tailwindcss // use -D for dev dependencies
@@ -81,3 +80,4 @@ use effect will be re render twise when a componnent re render
 in use effects, at the first re-rendering time, the return statement will not be execute. At the second  time also, return will get first and so on. those will happens in the developer mode. but not in the production  mode.
 
 Todo: Config doceker file
+add a jenkins file
